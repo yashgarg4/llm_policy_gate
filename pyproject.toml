@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "sentinel-ai"
+version = "0.1.0"
+description = "Policy-driven middleware layer that wraps any LangGraph agent with runtime safety enforcement"
+requires-python = ">=3.11"
+dependencies = [
+    "pydantic>=2.0",
+    "pyyaml>=6.0",
+    "watchdog>=4.0",
+    "opentelemetry-sdk>=1.24",
+    "opentelemetry-exporter-otlp-proto-http>=1.24",
+    "langchain-google-genai>=1.0",
+    "google-generativeai>=0.7",
+    "wrapt>=1.16",
+    "better-profanity>=0.7",
+    "langgraph>=0.1",
+    "langchain-core>=0.2",
+    "tiktoken>=0.7",
+]
+
+[project.optional-dependencies]
+pii = ["presidio-analyzer>=2.2", "presidio-anonymizer>=2.2"]
+dashboard = ["streamlit>=1.35", "aiosqlite>=0.20"]
+# Tier 2 optional extras
+semantic = ["scikit-learn>=1.4"]
+schema = ["jsonschema>=4.21"]
+metrics = ["prometheus-client>=0.20"]
+# Tier 3c persistent stores
+sqlite = ["aiosqlite>=0.20"]
+redis = ["redis>=5.0"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "streamlit>=1.35",
+    "aiosqlite>=0.20",
+    "scikit-learn>=1.4",
+    "jsonschema>=4.21",
+    "prometheus-client>=0.20",
+]
+
+[project.scripts]
+sentinel = "cli.check:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sentinel*", "cli*", "dashboard*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"

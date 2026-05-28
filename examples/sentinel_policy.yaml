@@ -1,0 +1,43 @@
+service: demo-agent
+
+input:
+  max_tokens: 2048
+  block_patterns:
+    - "ignore previous instructions"
+    - "ignore all instructions"
+    - "disregard your (system|previous) (prompt|instructions)"
+    - "you are now (DAN|jailbroken|unrestricted)"
+    - "act as (if you have no restrictions|an AI without limits)"
+    - "reveal (your (system prompt|instructions)|confidential)"
+  pii_detection: true
+  pii_action: REDACT
+
+budget:
+  max_cost_usd: 0.50
+  max_tokens_per_run: 50000
+  action: BLOCK
+
+circuit_breaker:
+  max_node_repeats: 5
+  max_retries: 3
+  action: ABORT
+
+output:
+  schema_validation: false
+  toxicity_check: true
+  toxicity_action: FLAG
+  topic_guardrail:
+    - technology
+    - programming
+    - software engineering
+    - artificial intelligence
+  topic_action: FLAG
+
+hallucination:
+  enabled: false
+  threshold: 0.75
+  action: FLAG
+
+audit:
+  log_all: true
+  tracely_endpoint: "http://localhost:8001/v1/traces"
