@@ -10,7 +10,7 @@ from pathlib import Path
 
 import streamlit as st
 
-# ── Config ────────────────────────────────────────────────────────────────────
+# Config 
 
 _DEFAULT_DB = Path(
     os.getenv(
