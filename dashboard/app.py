@@ -26,7 +26,7 @@ st.set_page_config(
 )
 
 
-# ── DB helpers (sync sqlite3 — no event-loop overhead in Streamlit) ───────────
+# DB helpers (sync sqlite3 — no event-loop overhead in Streamlit) 
 
 def _fetch_violations(db_path: Path, since_ts: float) -> list[dict]:
     with sqlite3.connect(db_path) as conn:
