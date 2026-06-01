@@ -139,7 +139,7 @@ c4.metric("Top rule", top_rule)
 
 st.divider()
 
-# ── Time series ───────────────────────────────────────────────────────────────
+# Time series 
 
 st.subheader("Violations per hour")
 if hourly:
