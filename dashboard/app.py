@@ -79,7 +79,7 @@ def _fetch_hourly(db_path: Path, since_ts: float) -> list[dict]:
     return [dict(row) for row in rows]
 
 
-# ── Sidebar ───────────────────────────────────────────────────────────────────
+# Sidebar 
 
 with st.sidebar:
     st.title("🛡️ Sentinel")
