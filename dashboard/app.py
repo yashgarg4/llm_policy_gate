@@ -118,7 +118,7 @@ except sqlite3.OperationalError as exc:
     st.error(f"Database error: {exc}")
     st.stop()
 
-# ── KPI row ───────────────────────────────────────────────────────────────────
+# KPI row 
 
 total = len(violations)
 blocked = sum(1 for v in violations if v["action"] in ("BLOCK", "ABORT"))
