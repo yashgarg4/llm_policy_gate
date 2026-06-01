@@ -152,7 +152,7 @@ else:
 
 st.divider()
 
-# ── Rule breakdown ────────────────────────────────────────────────────────────
+# Rule breakdown 
 
 if rule_counts:
     import pandas as pd
@@ -162,7 +162,7 @@ if rule_counts:
 
 st.divider()
 
-# ── Recent violations table ───────────────────────────────────────────────────
+# Recent violations table 
 
 st.subheader("Recent violations")
 
