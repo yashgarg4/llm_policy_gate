@@ -103,7 +103,7 @@ with st.sidebar:
     if st.button("🔄 Refresh now"):
         st.rerun()
 
-# ── Load data ─────────────────────────────────────────────────────────────────
+# Load data 
 
 since_ts = (datetime.now(timezone.utc) - timedelta(hours=window_h)).timestamp()
 
